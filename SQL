@@ -39,3 +39,5 @@ Query:
       FROM tagozatok INNER JOIN tanulok ON tagozatok.tagozat_id=tanulok.fk_tagozatid
       WHERE tagozat_nev='angol';
 
+- - - - - - - - - - - - - - - - - - -
+
