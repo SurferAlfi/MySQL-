@@ -1,0 +1,41 @@
+Tábla készítés:
+      CREATE TABLE osztalyok(
+      osztalyid INT primary key,
+      osztalyjel VARCHAR(4)
+      );
+
+Rekord bevitel:
+      INSERT INTO osztalyok VALUES (1, '1.a');
+      
+Kapcsolat: 
+      ALTER TABLE tanulok
+      ADD FOREIGN KEY (fk_osztalyid) REFERENCES osztalyok(osztalyid);
+
+Insert into:
+      INSERT INTO tanulok
+      VALUES (’ ’, ’Kő Péter’, 4, 1, 1, 4.2);
+
+Delete:
+      DELETE FROM tagozatok WHERE tagozat_nev='francia';
+
+Név szerint rendezett lista
+      SELECT gyereknev, fk_osztalyid
+      FROM tanulok
+      ORDER BY gyereknev;
+
+Rendezett lista: 
+      SELECT gyereknev, fk_osztalyid, atlag
+      FROM tagozatok INNER JOIN tanulok ON tagozatok.tagozat_id=tanulok.fk_tagozatid
+      WHERE tagozat_nev='francia'
+      ORDER BY atlag DESC;
+
+Kilistázás:
+      SELECT gyereknev, atlag
+      FROM tanulok
+      WHERE gyereknev LIKE 'K%' AND atlag>4.0;
+      
+Query:
+      SELECT COUNT(*)
+      FROM tagozatok INNER JOIN tanulok ON tagozatok.tagozat_id=tanulok.fk_tagozatid
+      WHERE tagozat_nev='angol';
+
